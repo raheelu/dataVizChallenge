@@ -343,7 +343,7 @@ comparison_data = pd.merge(
 )
 
 # Create side-by-side comparison visualization using object-oriented matplotlib
-fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(16, 8))
+fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(7, 5))
 
 # Sort data for both years
 avgDF_2010_sorted = avgDF_2010.sort_values('totalRuns', ascending=True)
@@ -358,16 +358,18 @@ colorado_colors_2021 = ["darkorchid" if stadium == "COL" else "lightgrey"
 # Left plot - 2010
 bars1 = ax1.barh(avgDF_2010_sorted.home, avgDF_2010_sorted.totalRuns, color=colorado_colors_2010)
 ax1.set_title("2010: Colorado Leads in Run-Friendliness", fontsize=14, fontweight='bold', pad=20)
-ax1.set_xlabel("Average Runs Per Game", fontsize=12)
-ax1.set_ylabel("Stadium (Home Team)", fontsize=12)
+ax1.set_xlabel("Average Runs Per Game", fontsize=8)
+ax1.set_ylabel("Stadium (Home Team)", fontsize=8)
+ax1.tick_params(axis='y', labelsize=6)
 ax1.set_xlim(0, max(avgDF_2010_sorted.totalRuns) * 1.1)
 ax1.grid(True, alpha=0.3)
 
 # Right plot - 2021
 bars2 = ax2.barh(avgDF_2021_sorted.home, avgDF_2021_sorted.totalRuns, color=colorado_colors_2021)
 ax2.set_title("2021: Colorado Maintains Dominance", fontsize=14, fontweight='bold', pad=20)
-ax2.set_xlabel("Average Runs Per Game", fontsize=12)
-ax2.set_ylabel("Stadium (Home Team)", fontsize=12)
+ax2.set_xlabel("Average Runs Per Game", fontsize=8)
+ax2.set_ylabel("Stadium (Home Team)", fontsize=8)
+ax2.tick_params(axis='y', labelsize=6)
 ax2.set_xlim(0, max(avgDF_2021_sorted.totalRuns) * 1.1)
 ax2.grid(True, alpha=0.3)
 
